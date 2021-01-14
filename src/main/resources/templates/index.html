@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<!-- 注意导入顺序 -->
+<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js"></script>
+<!--<script type="text/javascript" src="Js/jQuery-form.js"></script>-->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>JavaChatRoom</title>
+</head>
+<body>
+	<div style="height: 100px;"></div>
+	<div class="content"><br>
+		<div class="title">JavaChatRoom</div>
+		<br>
+		<form action="Login">
+			<div class="un2">
+				<span>用户名</span><input type="text" name="un" class="un">
+			</div>
+			<br>
+			<br>
+			<div class="un2">
+				<span>密码</span><input type="text" name="pw" class="pw">
+			</div>
+			<br>
+			<br> <input type="button" value="登入" class="butt">
+		</form>
+	</div>
+</body>
+<script type="text/javascript">
+$(function() {
+	/* 异步form表单提交  */
+	$('.butt').click(function() {
+		var un = $('.un').val();
+		$('form').ajaxSubmit(function(data) {
+			if(data==1){
+				window.location="FindAllFriend?username="+un;
+			}else{
+				alert('账号或用户名错误！');
+			}
+		})
+	})
+})
+
+</script>
+<style>
+.butt:hover {
+	cursor: pointer;
+	background: rgba(13, 175, 144, 0.88);
+}
+
+.butt {
+letter-spacing: 1px;
+	width: 100px;
+	height: 34px;
+	border: none;
+	background: #0daf90;
+	font-size: 20px;
+	color: white;
+	letter-spacing: 1px;
+}
+
+span {
+	width: 100px;
+	background: #0daf90;
+	height: 32px;
+	display: inline-block;
+	float: left;
+	color: white;
+	font-size: 18px;
+	line-height: 32px;
+	margin-left: 35px;
+}
+
+.un, .pw {
+	width: 220px;
+	float: left;
+	height: 28px;
+	outline: none;
+	border: 1px solid #0daf90;
+	padding-left: 3px;
+	font-size: 18px;
+	letter-spacing: 1px;
+}
+
+.un:focus, .pw:focus {
+	border: 1px solid;
+}
+
+.title {
+	font-size: 30px;
+	font-weight: 700;
+	color: #0daf90;
+	letter-spacing: 1px;
+}
+
+.content {
+    border:1px solid #0daf90;
+	width: 400px;
+	height: 227px;
+	margin: 0 auto;
+	text-align: center;
+}
+</style>
+</html>

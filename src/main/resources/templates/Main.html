@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js"></script>
+    <link type="text/css" th:href="@{/asserts/css/main.css}" rel="stylesheet">
+    <script type="text/javascript" src="Js/javachat.js"></script>
+    <title>JavaChat</title>
+</head>
+<body>
+
+<!-- 欢迎界面    点击:display:none-->
+<div class="www">
+    <br><br><br><br><br><br><br><br>
+    登录成功了，快去找好友叙叙旧吧!<br><br>
+    Tip:点击左侧好友列表开始聊天
+</div>
+
+<!-- 左侧登录者头像 -->
+<img th:src="${user.info}" class="til">
+<!-- 最大LOGO -->
+<p class="p">JavaChat</p>
+<!-- 右上角登陆者头像 -->
+<img th:src="${user.info}" alt="头像" class="img2">
+<!-- 右上角登陆者昵称 -->
+<p class="come">[[${user.nickname}]]</p>
+
+<div class="cont">
+    <!-- 左侧栏 -->
+    <div class="tool"></div>
+
+    <div class="friend" th:each="friend:${list}">
+        <!-- 好友栏  循环好友list-->
+        <div>&nbsp;&nbsp;<img th:src="${friend.info}">&nbsp;<span>[[${friend.nickname}]]</span></div>
+    </div>
+
+    <!-- 聊天栏 与 发送框 -->
+    <div class="edit">
+        <div class="rec">
+            <!-- 好友昵称 -->
+            <div class="nick"></div>
+            <!-- 聊天内容 -->
+            <div class="table"></div>
+        </div>
+        <!-- 聊天内容输入区 -->
+        <textarea class="keyon" maxlength="50"></textarea>
+        <input type="button" value="Send" class="send">
+    </div>
+</div>
+</body>
+
+</html>
